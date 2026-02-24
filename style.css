@@ -1,0 +1,85 @@
+/* Base Resets */
+:root {
+    --color-sand: #F9F9F7;
+    --color-beige: #E8E4D9;
+    --color-brown: #3E2723;
+    --color-gold: #D4AF37;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom Scrollbar for Gallery */
+.hide-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+.hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* Image Card Hover Effects */
+.collection-card {
+    transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+    transform-style: preserve-3d;
+}
+
+.collection-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px -5px rgba(62, 39, 35, 0.15);
+}
+
+.collection-card img {
+    transition: transform 0.7s ease;
+}
+
+.collection-card:hover img {
+    transform: scale(1.08);
+}
+
+/* Glassmorphism Classes */
+.glass {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+/* Text Selection */
+::selection {
+    background: var(--color-gold);
+    color: white;
+}
+
+/* Mobile Menu Animation */
+#mobile-menu {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+#mobile-menu.hidden {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-10px);
+}
+#mobile-menu:not(.hidden) {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+/* Loader/Skeleton util (optional if we had dynamic loading) */
+.skeleton {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
